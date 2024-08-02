@@ -1,0 +1,148 @@
+<apex:page>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Candidatura</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 180vh;
+                background-color: #000000;
+                font-family: Arial, sans-serif;
+            }
+            .form-container {
+                background: #fff;
+                padding: 50px;
+                border-radius: 50px;
+                width: 100%;
+                max-width: 1000px;
+                box-sizing: border-box;
+                overflow: auto;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+            label {
+                margin: 10px 0 5px;
+                font-weight: bold;
+            }
+            input[type="text"],
+            input[type="date"],
+            input[type="email"],
+            input[type="tel"],
+            textarea,
+            select {
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+            textarea {
+                resize: vertical;
+                min-height: 100px;
+            }
+            input[type="checkbox"] {
+                margin-right: 5px;
+            }
+            .checkbox-group {
+                display: flex;
+                justify-content: center;
+                gap: 300px;
+                margin-bottom: 20px;
+            }
+            .checkbox-label {
+                display: flex;
+                align-items: center;
+            }
+            .form-actions {
+                display: flex;
+                justify-content: center;
+            }
+            .form-actions input[type="submit"] {
+                background-color: #000000;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="form-container">
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DWV000003okHF" method="POST">
+                <input type="hidden" name="oid" value="00DWV000003okHF"/>
+                <input type="hidden" name="retURL" value="https://recruitplatformloba-dev-ed.develop.my.salesforce-sites.com/"/>
+    
+                <label for="first_name">Primiero Nome</label>
+                <input id="first_name" maxlength="40" name="first_name" size="20" type="text" />
+    
+                <label for="last_name">Último Nome</label>
+                <input id="last_name" maxlength="80" name="last_name" size="20" type="text" />
+    
+                <label for="00NWV000001TdBt">Data de Dascimento</label>
+                <input id="00NWV000001TdBt" name="00NWV000001TdBt" size="12" type="date" />
+    
+                <label for="email">Email</label>
+                <input id="email" maxlength="80" name="email" size="20" type="email" />
+    
+                <label for="phone">Telemóvel</label>
+                <input id="phone" maxlength="40" name="phone" size="20" type="tel" />
+    
+                <label for="url">Website</label>
+                <input id="url" maxlength="80" name="url" size="20" type="text" />
+    
+                <label for="00NWV000001TdWr">Onde nos encontrou?</label>
+                <select id="00NWV000001TdWr" name="00NWV000001TdWr">
+                    <option value="">--None--</option>
+                    <option value="Plataforma LOBA">Plataforma LOBA</option>
+                    <option value="LinkedIn">LinkedIn</option>
+                    <option value="Behance">Behance</option>
+                    <option value="Alguém me indicou">Alguém me indicou</option>
+                    <option value="Outro">Outro</option>
+                </select>
+    
+                <label for="00NWV000001TdYT">Outro</label>
+                <input id="00NWV000001TdYT" maxlength="255" name="00NWV000001TdYT" size="20" type="text" />
+    
+                <label for="country">País</label>
+                <input id="country" maxlength="40" name="country" size="20" type="text" />
+    
+                <label for="city">Cidade</label>
+                <input id="city" maxlength="40" name="city" size="20" type="text" />
+    
+                <label for="street">Rua</label>
+                <textarea id="street" name="street"></textarea>
+    
+                <label for="00NWV000001TdQP">Anos de Experiencia</label>
+                <input id="00NWV000001TdQP" name="00NWV000001TdQP" size="20" type="text" />
+    
+                <label for="00NWV000001TdTd">Razões para te contratar</label>
+                <input id="00NWV000001TdTd" maxlength="255" name="00NWV000001TdTd" size="20" type="text" />
+    
+                <div class="checkbox-group">
+                    <label for="00NWV000001Tdbh" class="checkbox-label">
+                        <input id="00NWV000001Tdbh" name="00NWV000001Tdbh" type="checkbox" value="1" />
+                        Termos de serviço
+                    </label>
+    
+                    <label for="00NWV000001TddJ" class="checkbox-label">
+                        <input id="00NWV000001TddJ" name="00NWV000001TddJ" type="checkbox" value="1" />
+                        Receber Notificações
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <input type="submit" name="submit" value="Candidatar-me"/>
+                </div>
+            </form>
+        </div>
+    </body>
+    </html>
+</apex:page>
