@@ -157,10 +157,17 @@
         <!-- Candidatura -->
         <apex:form id="vacancyForm">
 
-        <div class="form-container">
-
+            <div class="form-container">
                 <p><strong>Está a candidatar-se para a vaga: {!selectedVacancyName}</strong></p>
+            </div>
+            <apex:actionFunction name="applyToVacancyFunction" action="{!applyToVacancy}" reRender="vacancyForm">
+                <apex:param name="vacancyId" assignTo="{!vacancyId}" value=""/>
+                <apex:param name="vacancyName" assignTo="{!vacancyName}" value=""/>
+            </apex:actionFunction>
 
+        </apex:form>
+        <apex:form id="detailsForm">
+            <div class="form-container">
                 <label for="first_name">*Primeiro Nome</label>
                 <apex:inputText id="first_name" value="{!firstName}"/>
 
@@ -178,12 +185,11 @@
 
                 <label for="website">Website</label>
                 <apex:inputText id="website" value="{!website}" />
-                
 
                 <label for="curriculo">Currículo</label>
                 <br/>
                 <apex:inputFile id="curriculo" value="{!curriculo}" filename="{!curriculoFileName}"/>
-                
+
                 <br/>
                 <br/>
 
@@ -240,11 +246,7 @@
                 <div class="form-actions">
                     <apex:commandButton action="{!submitVacancy}" value="Candidatar-me"/>
                 </div>
-        </div>
-        <apex:actionFunction name="applyToVacancyFunction" action="{!applyToVacancy}" reRender="vacancyComponent,vacancyForm">
-            <apex:param name="vacancyId" assignTo="{!vacancyId}" value=""/>
-            <apex:param name="vacancyName" assignTo="{!vacancyName}" value=""/>
-        </apex:actionFunction>
+            </div>
     </apex:form>
 <script>
     function setSeletcVacancy(vacancyId){

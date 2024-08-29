@@ -127,7 +127,7 @@
 
                             <div class="form-actions">
                                 <apex:commandButton value="Candidatar-se" reRender="vacancyList" 
-                                action="{!applyToVacancy}" onclick="setSeletcVacancy('{!vacancy.Id}')">
+                                onclick="setSeletcVacancy('{!vacancy.Id}')">
                                 </apex:commandButton>
                             </div>
                         </div>
