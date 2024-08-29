@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>false</allowRecall>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Lead__c</field>
+        <field>Vacancy__c</field>
+        <field>Candidacy_State__c</field>
+        <field>Meeting_Stage__c</field>
+        <field>Status__c</field>
+        <field>Proposal__c</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <type>adhoc</type>
+            </approver>
+        </assignedApprover>
+        <label>Proposta Steps</label>
+        <name>Proposta_Steps</name>
+    </approvalStep>
+    <emailTemplate>unfiled$public/SalesforceSchedulerModifyApptEmailTemplate</emailTemplate>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <criteriaItems>
+            <field>Candidacy__c.Candidacy_State__c</field>
+            <operation>equals</operation>
+            <value>Apto para propostas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Candidacy__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Criar Proposta</value>
+        </criteriaItems>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>Com_uma_proposta</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Apto_para_propostas</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Criar_Proposta</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>Sem_uma_proposta</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
+    <label>Fazer Proposta</label>
+    <nextAutomatedApprover>
+        <useApproverFieldOfRecordOwner>false</useApproverFieldOfRecordOwner>
+        <userHierarchyField>Manager</userHierarchyField>
+    </nextAutomatedApprover>
+    <processOrder>1</processOrder>
+    <recordEditability>AdminOnly</recordEditability>
+    <showApprovalHistory>false</showApprovalHistory>
+</ApprovalProcess>

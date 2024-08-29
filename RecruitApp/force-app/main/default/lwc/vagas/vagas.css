@@ -1,0 +1,25 @@
+.vacancy-tile {
+    display: block;
+    border: 5px solid #0070d2;
+    border-radius: 0.25rem;
+    background-color: #e3f3ff;
+    padding: 1rem;
+}
+
+.vacancy-tile-body {
+    padding: 1rem;
+}
+
+.vacancy-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.vacancy-detail {
+    margin-bottom: 0.25rem;
+}
+
+.vacancy-button {
+    margin-top: 1rem;
+    text-align: center;
+}

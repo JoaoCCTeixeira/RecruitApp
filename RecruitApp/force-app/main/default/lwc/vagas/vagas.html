@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Vacancies">
+        <div class="slds-card__body slds-card__body_inner">
+            <template if:true={vacancies}>
+                <lightning-layout multiple-rows="true" pull-to-boundary="small">
+                    <template for:each={vacancies} for:item="vacancy">
+                        <lightning-layout-item key={vacancy.Id} size="6" class="slds-var-p-around_x-small">
+                            <lightning-card title={vacancy.Name} class="vacancy-tile">
+                                <div class="slds-var-p-horizontal_small vacancy-tile-body">
+                                    <div class="slds-media">
+                                        <div class="slds-media__body">
+                                            <p class="slds-var-m-bottom_xx-small"><strong>Descrição: </strong>{vacancy.descriptionText}</p>
+                                            <p class="slds-var-m-bottom_xx-small"><strong>Localização: </strong>{vacancy.localizationText}</p>
+                                            <p class="slds-var-m-bottom_xx-small"><strong>Responsabilidades: </strong>{vacancy.responsibilitiesText}</p>
+                                            <p class="slds-var-m-bottom_xx-small"><strong>Conhecimento Extra: </strong>{vacancy.extraKnowledgeText}</p>
+                                            <p class="slds-var-m-bottom_xx-small"><strong>Remoto/Presencial: </strong>{vacancy.remoteText}</p>
+                                            <p class="slds-var-m-bottom_xx-small"><strong>Vagas Disponiveis: </strong>{vacancy.numberVacancyAvailableText}</p>
+                                            <p class="slds-var-m-bottom_xx-small"><strong>Horas de Trabalho (Por Mês): </strong>{vacancy.workingHoursText}</p>
+                                            <p class="slds-var-m-bottom_xx-small"><strong>Salário: </strong>{vacancy.salaryText}</p>
+                                            <button class="slds-button slds-button_brand" data-id={vacancy.Id} onclick={handleApply}>Candidatar-se</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </lightning-card>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </template>
+            <template if:true={error}>
+                <div class="slds-text-color_error">
+                    --- An error occurred while loading the vacancy list. ---
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

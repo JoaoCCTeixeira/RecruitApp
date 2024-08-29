@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Marcar_Reuniao</fullName>
+        <description>Marcar Reuniao</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>recruitapp-joao@loba.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>recruitment@loba.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Reuni_o_Marcada_1723478034572</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Alterar_Reuniao</fullName>
+        <field>Meeting_Stage__c</field>
+        <literalValue>Alterar Reunião</literalValue>
+        <name>Alterar Reunião</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Apresentar_Proposta</fullName>
+        <field>Status__c</field>
+        <literalValue>Apresentar Proposta</literalValue>
+        <name>Apresentar Proposta</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Aprovado</fullName>
+        <field>Candidacy_State__c</field>
+        <literalValue>Aprovado</literalValue>
+        <name>Aprovado</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Apto_para_propostas</fullName>
+        <field>Candidacy_State__c</field>
+        <literalValue>Apto para propostas</literalValue>
+        <name>Apto para propostas</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Com_uma_proposta</fullName>
+        <field>Proposal__c</field>
+        <literalValue>Com uma proposta</literalValue>
+        <name>Com uma proposta</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Contratado</fullName>
+        <field>Candidacy_State__c</field>
+        <literalValue>Contratado</literalValue>
+        <name>Contratado</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Contratados</fullName>
+        <field>Status__c</field>
+        <literalValue>Contratados</literalValue>
+        <name>Contratados</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Criar_Data_Apresentacao_Proposta</fullName>
+        <field>Status__c</field>
+        <literalValue>Criar Data Apresentação Proposta</literalValue>
+        <name>Criar Data Apresentacao Proposta</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Criar_Proposta</fullName>
+        <field>Status__c</field>
+        <literalValue>Criar Proposta</literalValue>
+        <name>Criar Proposta</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Criar_Reuniao</fullName>
+        <field>Status__c</field>
+        <literalValue>Criar Reuniões</literalValue>
+        <name>Criar Reuniao</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Data_apresenta_o_proposta_confirmada</fullName>
+        <field>Meeting_Stage__c</field>
+        <literalValue>Data apresentação proposta confirmada</literalValue>
+        <name>Data apresentação proposta confirmada</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Data_apresenta_o_proposta_realizada</fullName>
+        <field>Meeting_Stage__c</field>
+        <literalValue>Data apresentação proposta realizada</literalValue>
+        <name>Data apresentação proposta realizada</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>None_Meeting_Stage</fullName>
+        <field>Meeting_Stage__c</field>
+        <name>None Meeting Stage</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>None_Proposal</fullName>
+        <field>Proposal__c</field>
+        <name>None Proposal</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Nova_Candidatura</fullName>
+        <field>Status__c</field>
+        <literalValue>Nova Candidatura</literalValue>
+        <name>Nova Candidatura</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Por_Avaliar</fullName>
+        <field>Candidacy_State__c</field>
+        <literalValue>Por Avaliar</literalValue>
+        <name>Por Avaliar</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Proposta_recusada</fullName>
+        <field>Meeting_Stage__c</field>
+        <literalValue>Proposta recusada</literalValue>
+        <name>Proposta recusada</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reprovado</fullName>
+        <field>Candidacy_State__c</field>
+        <literalValue>Reprovado</literalValue>
+        <name>Reprovado</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>ReprovadoS</fullName>
+        <field>Status__c</field>
+        <literalValue>Reprovado</literalValue>
+        <name>ReprovadoS</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reuniao_Confirmada</fullName>
+        <field>Meeting_Stage__c</field>
+        <literalValue>Reunião confirmada</literalValue>
+        <name>Reunião Confirmada</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reuniao_Pendente</fullName>
+        <field>Meeting_Stage__c</field>
+        <literalValue>Reunião pendente</literalValue>
+        <name>Reunião Pendente</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reuniao_Recusada</fullName>
+        <field>Meeting_Stage__c</field>
+        <literalValue>Reunião recusada</literalValue>
+        <name>Reunião Recusada</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reunioes</fullName>
+        <field>Status__c</field>
+        <literalValue>Reuniões</literalValue>
+        <name>Reuniões</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reunioes_Pendentes</fullName>
+        <field>Status__c</field>
+        <literalValue>Reuniões Pendentes</literalValue>
+        <name>Reuniões Pendentes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sem_Data_apresenta_o_proposta</fullName>
+        <field>Meeting_Stage__c</field>
+        <literalValue>Sem data apresentação proposta</literalValue>
+        <name>Sem Data apresentação proposta</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sem_reuniao</fullName>
+        <field>Meeting_Stage__c</field>
+        <literalValue>Sem reunião</literalValue>
+        <name>Sem reunião</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sem_uma_proposta</fullName>
+        <field>Proposal__c</field>
+        <literalValue>Sem uma proposta</literalValue>
+        <name>Sem uma proposta</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

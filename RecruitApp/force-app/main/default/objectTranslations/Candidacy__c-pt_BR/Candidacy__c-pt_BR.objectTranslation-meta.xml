@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Candidacy</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Candidacies</value>
+    </caseValues>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Candidacy Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Criar Evento --></label>
+        <name>Criar_Evento</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Enviar Email --></label>
+        <name>Enviar_Email</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Tarefas --></label>
+        <name>Tarefas</name>
+    </quickActions>
+</CustomObjectTranslation>

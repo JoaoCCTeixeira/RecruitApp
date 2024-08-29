@@ -1,0 +1,149 @@
+<apex:component >
+    <apex:attribute name="vacancies" description="Description" type="Vacancy__c[]" required="true"/>
+    <apex:attribute name="error" description="Description" type="Boolean" required="true"/>
+    <apex:attribute name="vacancyId" description="Description" type="String" required="true"/>
+    <apex:attribute name="vacancyName" description="Description" type="String" required="true"/>
+
+    <style>
+        .vacancy-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .vacancy-item {
+            flex: 1 1 calc(50% - 1rem);
+            box-sizing: border-box;
+            max-width: calc(50% - 1rem);
+        }
+
+        .vacancy-tile {
+            display: block;
+            border: 5px solid #000000;
+            border-radius: 3rem;
+            background-color: #ffffff;
+            padding: 1rem;
+            height: 100%;
+        }
+
+        .vacancy-tile-body {
+            padding: 1rem;
+        }
+
+        .vacancy-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .vacancy-detail {
+            margin-bottom: 0.25rem;
+        }
+
+        .vacancy-button {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-actions input[type="submit"], 
+        .form-actions apex|commandButton {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        @media (max-width: 900px) {
+            .vacancy-item {
+            flex: 1 1 100%;
+            max-width: 100%;
+            }
+        }
+    </style>
+
+<apex:form id="form">
+    <apex:actionFunction name="scrollToBottomFunction" oncomplete="scrollToBottom()" />
+
+    <apex:outputPanel id="vacancyList">
+        <div class="vacancy-container">
+            <apex:repeat value="{!vacancies}" var="vacancy">
+                <div class="vacancy-item">
+                    <div class="vacancy-tile">
+                        <div class="vacancy-tile-body">
+                            <h1 class="vacancy-title">{!vacancy.Name}</h1>
+
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(vacancy.Description__c))}">
+                                <p class="vacancy-detail"><strong>Descrição: </strong><apex:outputText value="{!vacancy.Description__c}" escape="false" /></p>
+                            </apex:outputPanel>
+
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(vacancy.Traffic_Light__c))}">
+                                <p class="vacancy-detail"><strong>Tempo resposta: </strong><apex:outputText value="{!vacancy.Traffic_Light__c}" escape="false" /></p>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(vacancy.Localization__c))}">
+                                <p class="vacancy-detail"><strong>Localização: </strong>{!vacancy.Localization__c}</p>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(vacancy.Responsibilities__c))}">
+                                <p class="vacancy-detail"><strong>Responsabilidades: </strong><apex:outputText value="{!vacancy.Responsibilities__c}" escape="false" /></p>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(vacancy.Extra_Knowledge__c))}">
+                                <p class="vacancy-detail"><strong>Conhecimento Extra: </strong><apex:outputText value="{!vacancy.Extra_Knowledge__c}" escape="false" /></p>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(vacancy.Remote__c))}">
+                                <p class="vacancy-detail"><strong>Remoto/Presencial: </strong>{!vacancy.Remote__c}</p>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(vacancy.Number_Vacancy_Available__c))}">
+                                <p class="vacancy-detail"><strong>Vagas Disponiveis: </strong>{!vacancy.Number_Vacancy_Available__c}</p>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(vacancy.Working_Hours__c))}">
+                                <p class="vacancy-detail"><strong>Horas de Trabalho (Por Mês): </strong>{!vacancy.Working_Hours__c}</p>
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!NOT(ISBLANK(vacancy.Salary__c))}">
+                                <p class="vacancy-detail"><strong>Salário: </strong>{!vacancy.Salary__c}</p>
+                            </apex:outputPanel>
+                            
+                            <br/>
+                            <br/>
+
+                            <div class="form-actions">
+                                <apex:commandButton value="Candidatar-se" reRender="vacancyList" 
+                                action="{!applyToVacancy}" onclick="setSeletcVacancy('{!vacancy.Id}')">
+                                </apex:commandButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </apex:repeat>
+        </div>
+
+        <apex:outputPanel rendered="{!error}" styleClass="error-message">
+            An error occurred while loading the vacancy list.
+        </apex:outputPanel>
+    </apex:outputPanel>
+</apex:form>
+
+    <br/>
+    <br/>
+    <br/>
+
+</apex:component>

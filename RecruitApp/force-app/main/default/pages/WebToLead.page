@@ -1,0 +1,259 @@
+<apex:page controller="LeadPageController" docType="html-5.0" showHeader="false" applyBodyTag="false" applyHtmlTag="false" sidebar="false" standardStylesheets="false">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vagas e Candidatura</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+        }
+
+        .vacancy-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            width: 100%;
+            max-width: 1200px;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .vacancy-item {
+            flex: 1 1 calc(50% - 1rem);
+            box-sizing: border-box;
+            max-width: calc(50% - 1rem);
+        }
+
+        .vacancy-tile {
+            display: block;
+            border: 5px solid #000000;
+            border-radius: 0.25rem;
+            background-color: #ffffff;
+            padding: 1rem;
+            height: 100%;
+        }
+
+        .vacancy-tile-body {
+            padding: 1rem;
+        }
+
+        .vacancy-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .vacancy-detail {
+            margin-bottom: 0.25rem;
+        }
+
+        .vacancy-button {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 40px;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 2rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-actions input[type="submit"] {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .vacancy-info {
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .white-text {
+            color: #ffffff;
+        }
+
+        @media (max-width: 900px) {
+            .vacancy-item {
+            flex: 1 1 100%;
+            max-width: 100%;
+        }
+    }
+    </style>
+    
+    </head>
+    <body>
+        <!-- Vagas -->
+        <c:VagasList vacancies="{!vacancies}" error="{!error}" vacancyId="{!vacancyId}" vacancyName="{!vacancyName}" id="vacancyComponent"/>  
+        <p class="vacancy-detail white-text">🟢 = Entre 1 a 3 dias.</p>
+        <p class="vacancy-detail white-text">🟡 = Entre 3 e 7 dias.</p>
+        <p class="vacancy-detail white-text">🔴 = Mais de 1 semana.</p>
+
+        <!-- Candidatura -->
+        <apex:form id="vacancyForm">
+
+        <div class="form-container">
+
+                <p><strong>Está a candidatar-se para a vaga: {!selectedVacancyName}</strong></p>
+
+                <label for="first_name">*Primeiro Nome</label>
+                <apex:inputText id="first_name" value="{!firstName}"/>
+
+                <label for="last_name">*Último Nome</label>
+                <apex:inputText id="last_name" value="{!lastName}"/>
+
+                <label for="birth_date">Data de Nascimento</label>
+                <apex:input id="birth_date" value="{!birthDate}" type="date" />
+
+                <label for="email">*Email</label>
+                <apex:inputText id="email" value="{!email}" />
+
+                <label for="phone">Telefone</label>
+                <apex:inputText id="phone" value="{!phone}" />
+
+                <label for="website">Website</label>
+                <apex:inputText id="website" value="{!website}" />
+                
+
+                <label for="curriculo">Currículo</label>
+                <br/>
+                <apex:inputFile id="curriculo" value="{!curriculo}" filename="{!curriculoFileName}"/>
+                
+                <br/>
+                <br/>
+
+                <label for="found_us">Onde nos encontrou?</label>
+                    <apex:selectList value="{!foundUs}" size="1">
+                        <apex:selectOption itemValue="Plataforma LOBA" itemLabel="Plataforma LOBA" />
+                        <apex:selectOption itemValue="LinkedIn" itemLabel="LinkedIn" />
+                        <apex:selectOption itemValue="Behance" itemLabel="Behance" />
+                        <apex:selectOption itemValue="Alguém me indicou" itemLabel="Alguém me indicou" />
+                        <apex:selectOption itemValue="Outro" itemLabel="Outro" />
+                </apex:selectList>
+
+                <label for="country">País</label>
+                <apex:inputText id="country" value="{!country}" />
+
+                <label for="city">Cidade</label>
+                <apex:inputText id="city" value="{!city}" />
+
+                <label for="street">Rua</label>
+                <apex:inputText id="street" value="{!street}" />
+
+                <label for="postal_code">Código Postal</label>
+                <apex:inputText id="postal_code" value="{!postalCode}" />
+
+                <label for="experience_years">*Anos de Experiência</label>
+                <apex:inputText id="experience_years" value="{!experienceYears}" />
+
+                <label for="reasons_to_hire">*Razões para te contratar</label>
+                <apex:inputTextarea id="reasons_to_hire" value="{!reasonsToHire}" />
+
+                <div class="checkbox-group">
+                    <label for="service_terms" class="checkbox-label">
+                        <apex:inputCheckbox id="service_terms" value="{!serviceTerms}" required="true"/>
+                        *Termos de serviço
+                    </label>
+
+                    <label for="notifications" class="checkbox-label">
+                        <apex:inputCheckbox id="notifications" value="{!notifications}" />
+                        Receber Notificações
+                    </label>
+                </div>
+
+                <p>Os dados recebidos serão guardados pela Globaz,S.A, que os utilizará apenas para efeitos de 
+                    recrutamento durante um prazo de 5 anos após a sua receção.
+                    Poderá, em qualquer momento e de forma gratuita, exercer os seus direitos de acesso, 
+                    retificação ou de eliminação dos dados, oposição, limitação e portabilidade dos seus dados, 
+                    através do endereço de email  empregoloba@loba.com ou através de carta registada para LOBA, 
+                    Largo Luís de Camões, Edifício Rainha, Piso 12 3720-232 Oliveira de Azeméis,  
+                    Portugal que atua na qualidade/responsabilidade do tratamento de dados. 
+                    Em qualquer dos casos, caso considere que a Globaz,S.A violou ou possa ter violado os direitos 
+                    de que dispõe nos termos da legislação aplicável sobre proteção de dados, poderá apresentar uma 
+                    reclamação perante a Comissão Nacional da Proteção de Dados.</p>
+
+                <div class="form-actions">
+                    <apex:commandButton action="{!submitVacancy}" value="Candidatar-me"/>
+                </div>
+        </div>
+        <apex:actionFunction name="applyToVacancyFunction" action="{!applyToVacancy}" reRender="vacancyComponent,vacancyForm">
+            <apex:param name="vacancyId" assignTo="{!vacancyId}" value=""/>
+            <apex:param name="vacancyName" assignTo="{!vacancyName}" value=""/>
+        </apex:actionFunction>
+    </apex:form>
+<script>
+    function setSeletcVacancy(vacancyId){
+        applyToVacancyFunction(vacancyId);
+        window.setTimeout(function() {
+            window.scrollTo(0, document.body.scrollHeight);
+        }, 0);
+    }
+</script>
+
+</body>
+</apex:page>
